@@ -220,14 +220,15 @@ int start()
       }
    }
 
-   if (maintenance_iterations > 30){
-      maintenance_iterations = 0;
-      RebuildRTA();
-      CloseAllNonValidTrades(); 
-      Update_All_RTA_Profits();
-      RebuildRTA();
-   }   
-   if (MathMod(OrdersTotal(),3) > 0 || (ArrayRange(RTA,0) != (OrdersTotal() / 3)) ) RebuildRTA();
+   //if (maintenance_iterations > 30){
+   //   maintenance_iterations = 0;
+      //RebuildRTA();
+   //   CloseAllNonValidTrades(); 
+      //Update_All_RTA_Profits();
+      //RebuildRTA();
+   //} 
+     
+   if (MathMod(OrdersTotal(),3) > 0 || (ArrayRange(RTA,0) != (OrdersTotal() / 3)) || ( (RingCount*3) !=  OrdersTotal() ) ) RebuildRTA();
    Update_All_RTA_Profits();
    DisplayStats();
    Sleep (50);
